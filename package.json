@@ -1,0 +1,20 @@
+{
+  "name": "ping",
+  "description": "A ping demonstrator for node",
+  "version": "0.0.1",
+  "author": {
+    "name": "Diego Lafuente",
+    "email": "dlafuente@tuitravel-ad.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DiegoTUI/ping.git"
+  },
+  "dependencies": {
+    "socket.io": "0.9.x",
+    "socket.io-client": "0.9.x"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  }
+}

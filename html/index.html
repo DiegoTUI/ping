@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset='utf-8'>
+<title>Tui Innovation Pinger</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="http://54.246.80.107:8080/socket.io/socket.io.js"></script>
+<script src="js/pinger.js"></script>
+<script src="js/client.js"></script>
+<script src="/src/util/log.js"></script>
+<script src="/src/util/util.js"></script>
+
+<script>
+$(function(){
+	$('#connect').click(function () {
+		pingerClient.setParams($('#maxPingers').text(), $('#period').text(), $('#delay').text());
+		pingerClient.createPingers();
+		$('#status').html('Connected and pinging!!');
+	});
+	$('#disconnect').click(function () {
+		pingerClient.disconnectAll();
+		$('#status').html('Disconnected');
+	});
+});
+</script>
+<link media="all" rel="stylesheet" href="css/pinger.css">
+</head>
+<body>
+<p><span class="heading">Pinger Simulation</span>:
+A stress test for a simple nodejs server.
+</p>
+<p>
+Maximum number of pingers
+<input type="range" title="maxPingers" min="0" max="100" value="10" step="1" onchange="showValue(this.title,this.value)"/>
+<span id="maxPingers">10</span>
+</p>
+<p>
+Peiod of each pinger (milliseconds)
+<input title="period" type="range" min="10" max="2000" value="1000" step="10" onchange="showValue(this.title,this.value)"/>
+<span id="period">1000</span>
+</p>
+<p>
+Delay between each pinger (milliseconds)
+<input title="delay" type="range" min="100" max="5000" value="1000" step="100" onchange="showValue(this.title,this.value)"/>
+<span id="delay">1000</span>
+</p>
+<p>
+<input id="connect" type="button" value="Connect"/>
+Status:
+<span id="status">not started</span>
+<input id="disconnect" type="button" value="Disconnect"/>
+</p>
+<p>
+Active Pingers: <span id="activePingers">n/a</span></br>
+Average delay: <span id="averageDelay">n/a</span></br>
+</p>
+<div id="message" class="message">
+	no messages at this time
+</div>
+</div>
+</body>
+</html>
