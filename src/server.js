@@ -92,6 +92,10 @@ function serve (request, response) {
 		serve_file(200, '..' + url.pathname, response);
 		return;
 	}
+	if (url.pathname.startsWith('/socket.io/'))
+	{
+		return;
+	}
 	serve_file(200, url.pathname, response);
 }
 

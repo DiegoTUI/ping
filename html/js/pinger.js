@@ -34,7 +34,7 @@ var pinger = function (onConnect, onDisconnect)
 		if (socket === null)
 		{
 			info ("Connecting websocket");
-			socket = io.connect('http://54.246.80.107:8080',{"force new connection" : true});
+			socket = io.connect('http://127.0.0.1:8080',{"force new connection" : true});
 			//connected event
 			socket.on("connected", function(data){
 				onConnect(self);
